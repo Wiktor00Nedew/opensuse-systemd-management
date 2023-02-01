@@ -1,0 +1,34 @@
+version: '3'
+
+networks:
+  lab_test:
+    external: true
+
+services:
+  opensuse: &base
+    build: ./build
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /sys/fs/cgroup/systemd:/sys/fs/cgroup/systemd:rw
+    tmpfs:
+      - /run
+      - /tmp
+    restart: unless-stopped
+    tty: true
+    hostname: opensuse
+    deploy:
+      resources:
+        reservations:
+          memory: 256m
+        limits:
+          memory: 512m
+          cpus: '0.50'
+    #cpu_count: 1
+    privileged: false
+    networks:
+      - lab_test
+
+  student:
+    <<: *base
+    ports:
+      - '50022:22'

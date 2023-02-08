@@ -1,0 +1,10 @@
+RAM, swap, procesor, temperatura, upload/download, zapełnienie
+
+ram:swap:proc:temp:up:down:dysk
+
+ram - ilość zużytego ramu w GB
+swap - ilość zajętego swapu w GB
+proc - procent, bez znaku
+temp - stopnie, bez znaku
+upload,download - Mb
+dysk - zapełnienie w GB/łączna pojemność w GB

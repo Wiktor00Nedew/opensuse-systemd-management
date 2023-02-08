@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 networks:
   lab_test:
@@ -16,13 +16,15 @@ services:
     restart: unless-stopped
     tty: true
     hostname: opensuse
-    deploy:
-      resources:
-        reservations:
-          memory: 256m
-        limits:
-          memory: 512m
-          cpus: '0.50'
+    mem_limit: 256m
+    mem_reservation: 128m
+    #deploy:
+      #resources:
+        #reservations:
+          #memory: 256m
+        #limits:
+          #memory: 512m
+          #cpus: '0.50'
     #cpu_count: 1
     privileged: false
     networks:
